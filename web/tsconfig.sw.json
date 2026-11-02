@@ -1,0 +1,20 @@
+{
+  "comment": "The service worker runs in a worker global, which needs a different lib set than the app.",
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "WebWorker"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "types": []
+  },
+  "include": ["src/sw.ts", "src/lib/outbox.ts", "src/lib/idb.ts", "src/lib/types.ts", "src/sw-env.d.ts"]
+}
