@@ -1,0 +1,22 @@
+# python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+server/var/
+*.db
+*.db-wal
+*.db-shm
+
+# node
+node_modules/
+web/dist/
+web/dev-dist/
+npm-debug.log*
+.vite/
+
+# editors / os
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

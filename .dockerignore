@@ -1,0 +1,29 @@
+# vcs + local state
+.git
+.gitignore
+.github
+
+# python local env and caches
+.venv
+__pycache__
+*.py[cod]
+.pytest_cache
+server/var
+*.db
+*.db-wal
+*.db-shm
+
+# node deps and build output (the image builds its own)
+node_modules
+web/node_modules
+web/dist
+web/dev-dist
+npm-debug.log*
+
+# docs and editor noise
+*.md
+!README.md
+.DS_Store
+Thumbs.db
+.idea
+.vscode
