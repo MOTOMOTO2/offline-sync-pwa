@@ -106,6 +106,19 @@ being offline-capable. The frontend suite covers the outbox state machine
 (including two senders racing one entry), the sync engine, the cache, the
 status wording, and the screens rendering with `fetch` hard-failing.
 
+### Looking at it in a real browser
+
+```bash
+npm --prefix web install --no-save playwright && npx --prefix web playwright install chromium
+cd server && python -m app.main &           # something to point at
+node web/scripts/shots.mjs http://127.0.0.1:8080 shots
+```
+
+Drives a phone-sized Chromium through the whole offline round trip — file a
+report with the network cut, see it queued on the site and in the outbox, come
+back online, watch the queue drain itself — and screenshots each step. Not part
+of `npm test`, because it needs a running server and a downloaded browser.
+
 ### Regenerating the icons
 
 ```bash

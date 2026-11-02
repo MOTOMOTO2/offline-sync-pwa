@@ -958,7 +958,8 @@ a {
 .toast {
   position: fixed;
   left: 50%;
-  bottom: calc(var(--bar-h) + 24px + env(safe-area-inset-bottom));
+  /* Clear of the tab bar *and* of a screen's sticky action bar below it. */
+  bottom: calc(var(--bar-h) + 80px + env(safe-area-inset-bottom));
   transform: translateX(-50%);
   z-index: 30;
   max-width: calc(100% - 32px);

@@ -13,6 +13,10 @@ export function registerServiceWorker(): void {
   if (import.meta.env.DEV) return;
 
   window.addEventListener('load', () => {
+    // A first install also fires controllerchange, via the worker's
+    // clients.claim(). Only an *update* should reload the page.
+    const hadController = Boolean(navigator.serviceWorker.controller);
+
     void navigator.serviceWorker
       .register(SW_URL, { scope: '/' })
       .then((registration) => {
@@ -34,7 +38,7 @@ export function registerServiceWorker(): void {
     let reloading = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       // One reload, so the page and its worker are from the same build.
-      if (reloading) return;
+      if (reloading || !hadController) return;
       reloading = true;
       window.location.reload();
     });
